@@ -1,0 +1,13 @@
+*.sublime-*
+.sw*
+*~
+tmp/
+node_modules/
+*.DS_Store*
+coverage/
+test-karma.sh
+phonegap/www/*
+phonegap/config.xml
+phonegap/platforms/android/
+phonegap/plugins/*
+ant-gen/

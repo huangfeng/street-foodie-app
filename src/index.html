@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Street Foodie App</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendor.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css" />
+
+    <script src="phonegap.js"></script>
+
+    <script src="src/vendor.js"></script>
+    <script src="src/config.js"></script>
+    <script src="src/templates.js"></script>
+    <script src="src/app.js"></script>
+    @@desktop
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAPS_API_KEY"></script>
+  </head>
+  <body ng-controller="appCtrl">
+
+    <header class="bar bar-nav">
+      <a ng-if="app.titleback" ng-click="app.titlebackClick()" class="icon icon-left-nav pull-left"></a>
+      <a ng-click="app.titlebackClick()" class="icon icon-app pull-left"></a>
+
+      <a class="icon icon-padded icon-more-vertical pull-right app-menu-icon" ng-if="app.menu.more.inmenu" ng-click="app.menu.more.click()"></a>
+
+      <a ng-if="app.menu.foodIcons.active" class="ng-cloak icon icon-padded pull-right nav-actions" ng-click="app.menu.foodIcons.deleteFn()">
+        <i class="fa fa-trash-o"></i>
+      </a>
+
+      <a ng-if="app.menu.foodIcons.active" class="ng-cloak icon icon-padded pull-right nav-actions" ng-click="app.menu.foodIcons.editFn()">
+        <i class="fa fa-pencil"></i>
+      </a>
+
+      <a ng-if="app.menu.foodIcons.active" class="ng-cloak icon icon-padded pull-right nav-actions" ng-click="app.menu.foodIcons.shareFn()">
+        <i class="fa fa-share-alt"></i> Share
+      </a>
+
+      <h1 class="title ng-cloak">{{app.title}}</h1>
+    </header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content" ng-view>
+    </div>
+
+    <ul ng-show="app.menu.more.active" class="table-view app-menu" ng-class="{active: app.menu.more.active}">
+      <li class="table-view-cell" ng-click="app.menu.more.click();go('vendor/list')"><i class="fa fa-cutlery"></i> Vendors</li>
+      <li class="table-view-cell" ng-click="app.menu.more.click();go('market/list')"><i class="fa fa-map-marker"></i> Markets</li>
+      <li class="table-view-cell" ng-click="app.menu.more.click();go('food/new')"><i class="fa fa-camera-retro"></i> Record</li>
+      <li class="table-view-cell" ng-click="app.menu.more.click();go('food/list')"><i class="fa fa-th"></i> Gallery</li>
+      <li class="table-view-cell" ng-click="app.menu.more.click();go('about')"><i class="fa fa-info"></i> About</li>
+    </ul>
+    <!-- end content -->
+
+    <notify></notify>
+
+    <script>
+      function onDeviceready() {
+        document.removeEventListener('deviceready', onDeviceready, false);
+
+        try {
+          admob.setOptions({
+            publisherId: 'ADMOB_PUBLISHER_ID',
+            autoShowBanner: true
+          });
+
+          admob.createBannerView();
+        } catch (e) {
+          //
+        }
+
+        try {
+          navigator.splashscreen.hide();
+        }
+        catch(e) {
+          //
+        }
+
+        FastClick.attach(document.body);
+
+        angular.bootstrap(document, ['app']);
+      }
+
+      if(typeof window.cordova !== 'undefined' && typeof window.cordova.version !== 'undefined') {
+        document.addEventListener('deviceready', onDeviceready, false);
+      } else {
+        onDeviceready();
+      }
+
+    </script>
+  </body>
+</html>

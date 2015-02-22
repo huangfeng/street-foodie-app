@@ -1,0 +1,29 @@
+<div class="content-padded">
+
+  <div class="food-list" ng-if="foodList.length">
+    <div class="food-item" ng-repeat="food in foodList track by food.uuid" ng-click="go('food/show/'+food.uuid)">
+      <div class="food-item-food">
+        <span class="food-item-food">{{food.food}}</span>
+        <starrating ng-model="food" max="5" readonly="readonly"></starrating>
+      </div>
+
+      <div class="food-item-img-wrap" ng-class="{empty: !food.picture}">
+        <div class="m-food-picture-placeholder" ng-if="!food.picture"><i class="fa fa-picture-o"></i></div>
+        <img class="food-item-img" ng-if="food.picture" ng-src="{{food.picture}}">
+      </div>
+    </div>
+
+  <div style="clear: both"></div>
+
+  </div>
+
+
+  <button  ng-if="foodList.length && page.loaded" ng-click="go('food/new')" class="btn btn-block btn-food-primary">Add another?</button>
+
+
+  <div ng-if="!foodList.length && page.loaded">
+    <h3 class="grey-1 t-center">Nothing here - yet!</h3>
+    <button ng-click="go('food/new')" class="btn btn-block btn-food-primary">Add the first?</button>
+  </div>
+
+</div>

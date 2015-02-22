@@ -1,0 +1,45 @@
+<div class="content-padded food-show-page" ng-if="page.loaded">
+
+  <div class="food-item food-item-full">
+
+    <div class="food-item-food">
+      <span class="food-item-food">{{food.food}}</span>
+      <starrating ng-model="food" max="5" readonly="readonly"></starrating>
+    </div>
+
+    <div class="m-food-picture m-food-picture-placeholder" ng-if="!food.picture">
+      <i class="fa fa-picture-o"></i>
+    </div>
+
+    <div class="food-item-info">
+      <div class="food-item-notes" ng-if="food.notes">
+        <i class="fa fa-quote-left foodie-light-grey"></i>
+        {{food.notes}}
+      </div>
+
+      <ul>
+        <li ng-if="food.vendor" class="food-item-data">
+          <i class="fa fa-cutlery"></i> <span class="food-item-data">{{food.vendor}}</span>
+        </li>
+        <li ng-if="food.where" class="food-item-data">
+          <i class="fa fa-map-marker"></i> <span class="food-item-data">{{food.where}}</span>
+        </li>
+        <li ng-if="food.price" class="food-item-data">
+          <i class="fa fa-money"></i> <span class="food-item-data">&pound;{{food.price}}</span>
+        </li>
+        <li ng-if="food.createdAt" class="food-item-data">
+          <i class="fa fa-calendar-o"></i> <span class="food-item-data">{{food.createdAt|date:"dd/MM/yyyy"}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="m-food-picture" ng-if="food.picture">
+      <img ng-src="{{food.picture}}" alt="" picmodal-trigger></img>
+    </div>
+
+  </div>
+</div>
+
+<picmodal-element>
+  <img ng-src="{{food.picture}}" alt=""></img>
+</picmodal-element>

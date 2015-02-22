@@ -1,0 +1,86 @@
+// Make everything 100% so we can have 50% content
+body, div.content {
+  height: 100%;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.b-center {
+  display: block;
+  margin: 0 auto;
+}
+
+// HOME
+@home-top-lg-screen: 580px;
+@app-icon-min-height: 100px;
+@blurb-height: 110px;
+@home-top-min-height: (@app-icon-min-height + @blurb-height);
+@home-middle-height-t: 240px; // tall
+@home-middle-height-s: 140px; // short
+@home-footer-height: 20px;
+
+.content-padded.home {
+  // required by app-icon so it has a set size parent
+  height: 100%;
+
+  // this prevents scrolling on large screens
+  margin-bottom: 0px;
+  margin-top: 0px;
+
+  // for the footer
+  // min-height: 100%;
+  min-height: (@home-top-min-height + @home-middle-height-t);
+  @media screen and (max-height: @screen-short) {
+    min-height: (@home-top-min-height + @home-middle-height-s);
+  }
+}
+
+section.home-top {
+  max-height: 300px;
+  min-height: @home-top-min-height;
+
+  @media screen and (min-height: @home-top-lg-screen) {
+    height: 50%;
+  }
+
+  section.app-icon {
+    height: @app-icon-min-height;
+    padding: 10px 0 10px 0;
+
+    img.app-icon {
+      height: 100%;
+    }
+  }
+
+  section.blurb {
+    height: @blurb-height;
+    width: 100%;
+
+    h1, p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+section.home-middle {
+  height: 50%; // @home-middle-height;
+  min-height: @home-middle-height-t;
+
+  @media screen and (max-height: @screen-short) {
+    min-height: @home-middle-height-s;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+section.home-footer {
+  height: @home-footer-height;
+
+  p {
+    margin-bottom: 0;
+  }
+}

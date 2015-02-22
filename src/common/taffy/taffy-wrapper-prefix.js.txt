@@ -1,0 +1,3 @@
+angular.module('taffy', [])
+.factory('taffy', function() {
+// Taffy wrapper starts

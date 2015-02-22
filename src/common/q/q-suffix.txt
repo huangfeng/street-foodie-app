@@ -1,0 +1,6 @@
+
+  /* jshint ignore:end */
+  /** Angular module */
+  angular.module('Q', [])
+  .value('Q', Q);
+})();

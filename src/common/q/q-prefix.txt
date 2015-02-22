@@ -1,0 +1,6 @@
+(function() {
+  'use strict';
+
+  var Q;
+  /* jshint ignore:start */
+

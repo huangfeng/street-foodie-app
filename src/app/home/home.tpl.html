@@ -1,0 +1,30 @@
+<div class="content-padded home">
+
+  <section class="home-top">
+    <section class="app-icon">
+      <img src="assets/appmedia/icon160t.png" alt="" class="app-icon">
+    </section>
+
+    <section class="blurb">
+      <h3 class="grey-1 t-center">London Street Foodie</h3>
+      <p class="t-center">Discover, record and share the best street food in London</p>
+    </section>
+  </section>
+
+  <section class="home-middle">
+    <p class="btn-center">
+      <button ng-click="go('food/new')" class="btn btn-block btn-smaller btn-food-primary"><i class="fa fa-camera-retro"></i> Record food</button>
+      <button ng-disabled="!hasFood" ng-click="go('food/list')" class="btn btn-block btn-smaller btn-food-primary"><i class="fa fa-th"></i> Your gallery</button>
+    </p>
+    <p class="btn-center" >
+      <button ng-click="go('vendor/list')" class="btn btn-block btn-smaller btn-food-primary"><i class="fa fa-cutlery"></i> Vendors</button>
+      <button ng-click="go('market/list')" class="btn btn-block btn-smaller btn-food-primary"><i class="fa fa-map-marker"></i> Markets</button>
+    </p>
+    <p class="t-center footer-line">
+      <a ng-href="#/about" class="t-center pad-right">About</a>
+      <a ng-click="app.openExternal('https://twitter.com/StreetFoodieApp')"><i class="fa fa-twitter"></i> streetfoodieapp</a>
+    </p>
+  </section>
+
+</div>
+

@@ -1,0 +1,51 @@
+{
+  "name": "streetfoodie",
+  "version": "1.0.2-pub",
+  "description": "Street Foodie app to enjoy London street food even more",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karoly 'Charles' Szilagyi",
+  "homepage": "http://getfoodieapp.co",
+  "licenses": {
+    "type": "All right reserved",
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thekarel/street-foodie-app.git"
+  },
+  "devDependencies": {
+    "broccoli": "^0.13.3",
+    "broccoli-auto-generated": "0.0.3",
+    "broccoli-coffee": "^0.1.1",
+    "broccoli-concat": "0.0.6",
+    "broccoli-html2js": "0.0.4",
+    "broccoli-less-single": "~0.1.4",
+    "broccoli-merge-trees": "~0.1.4",
+    "broccoli-replace": "^0.1.7",
+    "broccoli-select": "~0.1.0",
+    "broccoli-static-compiler": "~0.1.4",
+    "grunt": "^0.4.5",
+    "grunt-broccoli-build": "^0.4.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-conventional-changelog": "^1.1.0",
+    "grunt-karma": "^0.8.3",
+    "grunt-mustache-render": "^1.3.0",
+    "grunt-replace": "^0.8.0",
+    "grunt-version": "^0.3.1",
+    "jshint-stylish": "~0.2.0",
+    "karma": "~0.12.16",
+    "karma-coffee-preprocessor": "^0.2.1",
+    "karma-coverage": "~0.2.4",
+    "karma-jasmine": "~0.2.0",
+    "karma-ng-html2js-preprocessor": "^0.1.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "lodash": "~2.4.1",
+    "q": "~1.0.1",
+    "shelljs": "^0.3.0"
+  }
+}

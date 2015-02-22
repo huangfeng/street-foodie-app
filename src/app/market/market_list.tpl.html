@@ -1,0 +1,24 @@
+<ul class="table-view" ng-class="{'table-view-halfscreen': page.mapready}" table-accordion-wrap>
+  <li ng-if="page.loading" class="table-view-cell">
+    Loading...
+  </li>
+  <li class="table-view-cell table-view-cell-wide" ng-repeat="market in markets" table-accordion-elem>
+    <a class="navigate-right">{{market.name}}</a>
+    <div class="table-view-info">
+      <p class="table-view-description">{{market.description}}</p>
+
+      <div class="table-view-card">
+        <p class="market-address">{{market.address}} <a><i class="fa fa-external-link" ng-click="openMapExternal(market)"></i></a></p>
+        <p class="market-open">Open: {{market.open}}</p>
+        <p class="market-tube">Tube: {{market.tube}}</p>
+        <p class="market-web"><a ng-click="app.openExternal(market.web)">{{market.web}}</a></p>
+      </div>
+
+      <div class="market-map" id="{{market.guid}}"></div>
+
+    </div>
+  </li>
+</ul>
+
+<div id="map" class="map-halfscreen" ng-show="page.mapready"></div>
+

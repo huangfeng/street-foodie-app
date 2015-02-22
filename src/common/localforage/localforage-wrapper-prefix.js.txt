@@ -1,0 +1,7 @@
+/**
+ * Wrapper module for LocalForage
+ * https://github.com/mozilla/localForage/
+ */
+angular.module('localforage', [])
+.factory('localforage', function() {
+// LocalForage wrapper starts

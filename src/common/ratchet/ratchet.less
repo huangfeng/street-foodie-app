@@ -1,0 +1,36 @@
+.table-view .table-view-cell .table-view-info {
+  margin-top: 0px;
+  max-height: 0px;
+  overflow: hidden;
+
+  transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+
+.table-view .table-view-cell.active .table-view-info {
+  margin-top: 15px;
+  max-height: 300px;
+
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+picmodal-element {
+  margin-top: 50px;
+  &, &.modal {
+    overflow: auto;
+  }
+
+  img {
+    max-width: 9999px;
+  }
+}
+
+// Modals eg. in vendor list
+.modal-padded {
+  margin-top: 50px;
+  overflow: auto;
+  padding: 10px;
+}

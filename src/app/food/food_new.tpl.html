@@ -1,0 +1,67 @@
+<div class="content-padded">
+
+  <form name="mFood" role="form" class="input-group">
+
+    <div ng-click="imageFromGallery()" class="m-food-picture m-food-picture-placeholder" ng-if="!food.picture && page.loaded">
+      <i class="fa fa-picture-o"></i>
+    </div>
+
+    <div class="m-food-picture" ng-if="food.picture">
+      <img ng-src="{{food.picture}}" alt="" picmodal-trigger></img>
+    </div>
+
+    <div class="food-photo-btn-layout input-row">
+      <button ng-click="imageFromGallery()" type="button" class="btn btn-block btn-food-primary btn-food-photo-select"><i class="fa fa-image"></i> Select photo</button>
+      <button ng-click="imageFromCamera()" type="button" class="btn btn-block btn-food-primary btn-food-photo-camera"><i class="fa fa-camera-retro"></i></button>
+    </div>
+
+    <div class="input-row">
+      <label>Food</label>
+      <input type="text" ng-model="food.food" name="foodFood" ng-minlength="2" ng-maxlength="19" placeholder="" required/>
+    </div>
+
+    <div class="input-row">
+      <label>Rating</label>
+      <starrating ng-model="food" max="5" class="m-food-rating"></starrating>
+    </div>
+
+    <div class="input-row" ng-show="!mFoodMoreOpen" ng-click="mFoodMoreOpen=true">
+      <label><a ng-click="mFoodMoreOpen=true">More...</a></label>
+    </div>
+
+    <div class="m-food-more" ng-class="{open: mFoodMoreOpen}">
+
+      <div class="input-row" ng-class="{invalid: mFood.foodPrice.$invalid}">
+        <label>Price</label>
+        <input type="text" name="foodPrice" ng-model="food.price" placeholder="eg. 6.5" ng-pattern="foodForm.priceRx" />
+      </div>
+
+      <div class="input-row">
+        <label>Vendor</label>
+        <input type="text" ng-model="food.vendor" placeholder="" />
+      </div>
+
+      <div class="input-row">
+        <label>Market</label>
+        <input type="text" ng-model="food.where" placeholder="" />
+      </div>
+
+      <textarea ng-model="food.notes" rows="4" placeholder="Notes"></textarea>
+
+    </div>
+
+    <button type="button" ng-disabled="mFood.$invalid" disabled="disabled" class="btn btn-block btn-food-primary m-food-submit" ng-click="saveFood(food)">Save <i class="fa fa-check"></i></button>
+
+  </form>
+
+</div>
+
+<p class="t-center">
+  <span ng-show="mFood.foodFood.$invalid">Type a name for your food and you're good to go.</span>
+  <span ng-show="!food.picture">You can add a photo later from your phone.</span>
+
+</p>
+
+<picmodal-element>
+  <img ng-src="{{food.picture}}" alt=""></img>
+</picmodal-element>

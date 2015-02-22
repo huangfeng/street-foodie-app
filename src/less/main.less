@@ -1,0 +1,24 @@
+/**
+ * This is the main application stylesheet. It should include or import all
+ * stylesheets used throughout the application as this is the only stylesheet in
+ * the Grunt configuration that is automatically processed.
+ */
+
+ /**
+  * Import Font Awesome mixins
+  */
+@import '../../vendor/fontawesome/less/variables.less';
+@import (reference) '../../vendor/fontawesome/less/core.less';
+
+/**
+ * Import module LESS files
+ */
+@import '../common/ratchet/ratchet.less';
+
+ /**
+  * Import app-wide modules - SMACSS style
+  */
+ @import 'reset.less';
+ @import 'variables.less';
+ @import 'layout.less';
+ @import 'modules.less';

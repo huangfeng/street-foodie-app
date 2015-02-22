@@ -1,0 +1,35 @@
+<span list-modal>
+
+
+    <ul class="table-view">
+      <li ng-if="page.loading" class="table-view-cell">
+        Loading...
+      </li>
+      <li class="table-view-cell media table-view-cell-wide" ng-repeat="vendor in vendors" ng-if="vendor.name">
+        <a class="navigate-right" list-modal-trigger="vendor">
+          <img class="media-object pull-left vendor-list-logo" ng-src="{{vendor.picture}}">
+          <div class="media-body">
+            {{vendor.name}}
+          <p class="table-view-description">{{vendor.intro}}</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <div class="modal modal-padded" list-modal-target>
+
+      <h3>{{item.name}}</h3>
+
+      <p class="table-view-description"><i class="fa fa-quote-left foodie-light-grey"></i> {{item.description || item.intro}} <i class="fa fa-quote-right foodie-light-grey"></p>
+
+      <div class="table-view-card">
+        <p class="market-address" ng-if="item.where"><a><i class="fa fa-cutlery"></i> {{item.where}}</a></p>
+        <p class="market-web" ng-if="item.www"><a ng-click="app.openExternal(item.www)"><i class="fa fa-globe"></i> {{item.www}}</a></p>
+        <p class="market-web" ng-if="item.twitter"><a ng-click="app.openExternal('https://www.twitter.com/'+item.twitter)"><i class="fa fa-twitter"></i> {{item.twitter}}</a></p>
+        <p class="market-web" ng-if="item.facebook"><a ng-click="app.openExternal('https://www.facebook.com/'+item.facebook)"><i class="fa fa-facebook"></i> {{item.facebook}}</a></p>
+        <p class="market-web" ng-if="item.instagram"><a ng-click="app.openExternal('https://www.instagram.com/'+item.instagram)"><i class="fa fa-instagram"></i> {{item.instagram}}</a></p>
+      </div>
+    </div>
+
+
+</span>

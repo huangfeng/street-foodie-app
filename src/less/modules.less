@@ -1,0 +1,522 @@
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+// HEADINGS
+.grey-1 {
+  color: @t-grey-1;
+}
+
+// STAR RATING MODULE
+// In the form behave like Ratchet input
+.input-row starrating {
+  margin-top: 7px;
+  display: block;
+  width: 65%;
+  float: right;
+  padding-left: 15px;
+}
+
+// In food list
+.food-item starrating {
+  display: inline;
+
+  .starrating {
+    display: inline;
+  }
+
+  i.starrating-gt {
+    display: none;
+  }
+}
+
+.starrating > i {
+  color: black;
+  font-size: 12px!important;
+  margin-right: 1px;
+  .fa();
+  &:before {
+    content: "\f005";
+  }
+}
+
+// inside form
+form .starrating > i {
+  margin-right: 10px;
+}
+
+.starrating > i.starrating-eq[value="0"],
+.starrating > i.starrating-lt[value="0"],
+.starrating > i.starrating-gt[value="0"]
+{
+  color: black;
+  &:before {
+    content: "\f165";
+  }
+}
+
+.starrating > i.starrating-eq {
+  color: @starrating_eq_color;
+}
+.starrating > i.starrating-lt {
+  color: @starrating_lt_color;
+}
+.starrating > i.starrating-gt {
+  color: @starrating_gt_color;
+  &:before {
+    content: "\f006";
+  }
+}
+
+// NOTIFICATION MODULE
+notify {
+  z-index: 10;
+  position: fixed;
+  bottom: 0px;
+}
+notify > section > .alert.ng-leave {
+  transition: all 1s;
+  -webkit-transition: all 1s;
+}
+
+notify > section > .alert.ng-leave-active {
+  opacity: 0;
+}
+
+// FOOD FORM
+.invalid label {
+  color: red;
+}
+.food-photo-btn-layout {
+  position: relative;
+
+  .btn-food-photo-select {
+    position: absolute;
+    left: 0;
+    width: 80%;
+  }
+
+  .btn-food-photo-camera {
+    position: absolute;
+    right: 0;
+    width: 20%;
+  }
+}
+
+.m-food-picture {
+  overflow: hidden;
+  max-height: 300px;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    border: 2px solid @t-grey-4;
+  }
+
+  @media (min-height: @screen-short) {
+    max-height: 380px;
+  }
+}
+
+.food-show-page {
+  // food photo is full height on food-show-page
+  .m-food-picture {
+    max-height: 100%;
+  }
+}
+
+picmodal-element {
+  text-align: center;
+}
+
+.m-food-picture-placeholder {
+  color: @t-grey-3;
+  text-align: center;
+  margin-top: 10px;
+
+  i.fa {
+    font-size: 8em;
+  }
+}
+
+.m-food-more {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+
+  &.open {
+    max-height: 999px;
+  }
+
+}
+
+.btn-food-primary.m-food-submit {
+  color: green;
+
+  &[disabled] {
+    color: grey;
+    i {
+      display: none;
+    }
+  }
+}
+
+// FOOD DISPLAY
+// NB: starrating has special rules for .food-item, see there!
+// FOOD LIST
+@food-item-food-pt: 15px;
+@food-item-food-pb: 5px;
+@food-item-food-h: 23px;
+@food-item-food-height: (@food-item-food-pt + @food-item-food-h);
+@food-item-height: 250px;
+@food-item-img-wrap-height: (@food-item-height - @food-item-food-height);
+@food-break-1: 640px;
+@food-break-2: 900px;
+
+.food-list {
+  @media screen and (min-width: @food-break-1) {
+    margin-bottom: 10px;
+  }
+
+  .food-item {
+    width: 100%;
+    padding-bottom: 10px;
+    margin: 10px 0 10px 0;
+    position: relative;
+
+    @media screen and (min-width: @food-break-1) {
+      width: 50%;
+      height: @food-item-height;
+      overflow: hidden;
+      float: left;
+      margin: 0;
+      padding: 0 5px;
+    }
+
+    @media screen and (min-width: @food-break-2) {
+      width: 33%;
+    }
+  }
+
+  .food-item-img-wrap {
+    overflow: hidden;
+    text-align: center;
+    height: @food-item-img-wrap-height;
+    border: 2px solid @t-grey-4;
+
+    &.empty {
+      border: 0 transparent none;
+    }
+
+    .food-item-img {
+        width: 100%;
+    }
+
+    &.food-item-full {
+      height: auto;
+    }
+  }
+
+  .food-item-food {
+    padding-top: @food-item-food-pt;
+    padding-bottom: @food-item-food-pb;
+
+    .food-item-food {
+      font-weight: bold;
+      font-size: 24px;
+      color: @t-grey-1;
+    }
+  }
+
+
+  // .food-actions {
+  //   margin: 0 auto;
+  //   width: 100%;
+  //   text-align: right;
+  // }
+} // end food-item
+
+.food-item-info ul {
+  margin: 0;
+  padding: 0;
+
+  .fa {
+    color: @foodie-light-brown;
+  }
+}
+
+li.food-item-data {
+  list-style-type: none;
+  display: inline;
+  font-size: @font-small;
+  padding-right: 10px;
+}
+
+.food-item-notes {
+  padding: 10px 0;
+  font-size: @font-small;
+  color: @t-grey-1;
+}
+
+
+
+// HOME
+img.app-icon {
+  .b-center;
+}
+
+// BUTTONS
+.btn-food-primary {
+  color: #595959;
+  background-color: white;
+  border-color: #767676;
+  border-width: 1px;
+
+  &:active {
+    color: #595959;
+    background-color: white;
+  }
+}
+
+.btn-food-action {
+  color: #4fa003;
+  background-color: white;
+  border-color: #4fa003;
+  border-width: 1px;
+
+  &:active {
+    color: #4fa003;
+    background-color: white;
+  }
+}
+
+.btn-food-delete {
+  border: 0;
+  color: #777;
+}
+
+.btn-share-facebook {
+  color: white;
+  background-color: #4c66a4;
+}
+
+.btn-share-twitter {
+  color: white;
+  background-color: #5db5de;
+}
+
+// Make home page buttons go into 2x2 grid
+.btn-block.btn-smaller {
+  @media (max-height: @screen-short) {
+    width: 45%;
+    display: inline;
+  }
+}
+
+// Make home page buttons go into 2x2 grid
+p.btn-center {
+  @media (max-height: @screen-short) {
+    text-align: center;
+  }
+}
+
+// NAVBAR
+.icon-padded.pull-right {
+  padding-left: 18px;
+}
+
+header.bar-nav {
+  h1 {
+    line-height: 52px;
+  }
+  a.icon {
+    color: @android-actionbar-icon;
+  }
+
+  .nav-actions {
+    font-size: 16px;
+    padding-top: 17px;
+    padding-bottom: 17px; // keep size and padding in sync
+  }
+}
+
+.icon.icon-app {
+  width: 24px;
+  height: 50px;
+  background-image: url(../appmedia/icon24t.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  margin-right: 13px;
+}
+
+// Table view (eg. markets)
+.table-view-cell.table-view-cell-wide {
+  padding-right: 45px;
+}
+
+
+.table-view .table-view-cell.active .table-view-info {
+  max-height: 600px;
+}
+
+.table-view-info {
+  margin-top: 15px;
+
+  .table-view-description {
+    margin-bottom: 5px;
+  }
+}
+
+.table-view-cell.active .navigate-right {
+  background-color: @android-blue-1;
+  color: white;
+}
+
+.table-view-card {
+  background-color: white;
+  border: 2px solid silver;
+  border-radius: 10px;
+  padding: 5px;
+
+  p {
+    color: black;
+  }
+}
+
+// Google maps on #market/list
+.table-view-halfscreen {
+  height: 50%;
+  overflow: auto;
+  margin-bottom: 0;
+}
+
+// make it stronger then Ratchet :)
+div.content > ul.table-view.table-view-halfscreen {
+  margin-top: 0;
+}
+
+
+.map-halfscreen {
+  height: 50%;
+  overflow: hidden;
+  border-top: 1px solid silver;
+}
+
+.infoWindow {
+
+  height: 24px;
+  min-width: 200px;
+
+  i.fa.fa-external-link {
+    color: #33b5e5;
+    display: block;
+    float: left;
+    margin-top: 6px;
+  }
+
+  h1 {
+    text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Market info box
+.table-view-card {
+  .fa {
+    width: 13px;
+  }
+}
+
+// Text related
+.pad-right {
+  padding-right: 30px;
+}
+
+// Funky app menu!
+.app-menu-icon {
+  width: 60px;
+}
+
+.app-menu {
+  z-index: -5;
+  height: 0;
+  position: fixed;
+  top: 47px;
+  right: 0;
+  overflow: auto;
+  width: 150px;
+  background-color: white;
+  margin-right: 5px;
+  margin-top: 2px;
+
+  transition: height 0;
+  -moz-transition: height 0;
+  -webkit-transition: height 0;
+
+  li {
+    z-index: -5;
+  }
+
+  &.active {
+    z-index: auto;
+    top: 49px;
+    height: auto;
+    max-height: 300px;
+    border: inherit;
+    transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    -webkit-transition: height 0.2s;
+    li {
+      z-index: auto;
+    }
+  }
+
+  i.fa {
+    z-index: 13;
+    width: 20px;
+  }
+
+  li.table-view-cell {
+    padding-right: 15px;
+  }
+}
+
+// Vendor
+.vendor-list-logo {
+  width: 42px;
+  height: 42px;
+}
+
+// Color the icons!
+.foodie-dark-red {
+  color: @foodie-dark-red;
+}
+.foodie-dark-green {
+  color: @foodie-dark-green;
+}
+.foodie-dark-brown {
+  color: @foodie-dark-brown;
+}
+.foodie-dark-yellow {
+  color: @foodie-dark-yellow;
+}
+.foodie-light-red {
+  color: @foodie-light-red;
+}
+.foodie-light-green {
+  color: @foodie-light-green;
+}
+.foodie-light-brown {
+  color: @foodie-light-brown;
+}
+.foodie-light-yellow {
+  color: @foodie-light-yellow;
+}
+.foodie-light-grey {
+  color: @foodie-light-grey;
+}

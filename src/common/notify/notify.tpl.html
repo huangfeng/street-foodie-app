@@ -1,0 +1,4 @@
+
+<section class="messages">
+  <div ng-repeat="(key, message) in messages" ng-class="message.cssClass" ng-click="messageClick(key)" class="alert alert-dismissable">{{message.text}}</div>
+</section>
